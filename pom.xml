@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">	
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jboss.examples.brms</groupId>
+	<artifactId>brms-pmml-example</artifactId>
+	<version>0.1</version>
+
+	<name>JBoss BRMS example: brms-pmml-example</name>
+	<description>brms-pmml-example: Demonstrates how to interact with PMML models</description>
+
+	<properties>
+		<!-- Explicitly declaring the source encoding eliminates the following 
+		     			message: -->
+		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
+		     			resources, i.e. build is platform dependent! -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- maven-compiler-plugin -->
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+
+		<!-- Ignore test failure because it requires additional setup -->
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-pmml</artifactId>
+			<version>6.2.0.Final-redhat-6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-scorecards</artifactId>
+			<version>6.2.0.Final-redhat-6</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>com.jboss.examples.brms.PMMLExecutionTest</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+
